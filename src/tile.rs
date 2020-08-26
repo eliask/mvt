@@ -132,7 +132,7 @@ impl Tile {
             .vec_tile
             .get_layers()
             .iter()
-            .any({ |n| n.get_name() == layer.layer.get_name() })
+            .any( |n| n.get_name() == layer.layer.get_name() )
         {
             Err(Error::DuplicateName())
         } else {
@@ -250,7 +250,7 @@ impl Feature {
     /// Set the feature ID.
     pub fn set_id(&mut self, id: u64) {
         let layer = &self.layer.layer;
-        if layer.get_features().iter().any({ |f| f.get_id() == id }) {
+        if layer.get_features().iter().any( |f| f.get_id() == id ) {
             warn!("Duplicate feature ID ({}) in layer {}", id, layer.get_name());
         }
         self.feature.set_id(id);
